@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+.header {
+  height: 10vh;
+  width: 100vw;
+  background-color: #222;
+  display: grid;
+  grid-template-columns: 1fr 14fr; 
+  align-items: center;
+  &__title {
+    grid-column-start: 2;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+  }
+} 

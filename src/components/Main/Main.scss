@@ -1,3 +1,16 @@
 .main {
-  
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  justify-items: center;
+  align-items: center;
+  .main__btn {
+    font-size: 60px;
+    
+    &-left {
+      justify-self: right;
+    }
+    &-right {
+      justify-self: left;
+    }
+  }
 }

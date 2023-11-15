@@ -3,8 +3,8 @@ import './Header.scss'
 
 export default function Header() {
   return (
-    <div className='header'>
+    <header className='header'>
       <div className="header__title">Users list</div>
-    </div>
+    </header>
   )
 }

@@ -3,24 +3,24 @@
   display: grid;
   grid-template-rows: 1fr 1fr 2fr 1fr;
   justify-items: center;
-  .footer_dots {
+  .footer__dots {
     grid-row: 1 / 2;
     width: 5vw;
     display: flex;
     justify-content: space-evenly;
-    .dots_dot {
+    .dots__dot {
       width: 10px;
       height: 10px;
       background-color: #fff;
       border: 1px solid #B1B1B1;
       border-radius: 50%;
-      &__active{
+      &-active{
         background-color: #F03833;
         border: 1px solid #F03833;
       }
     }
   }
-  .footer_mouse {
+  .footer__mouse {
     grid-row: 3 / 4;
     font-size: 50px;
   }

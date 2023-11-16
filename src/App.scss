@@ -3,8 +3,6 @@
   grid-template-rows: 7.5vh 1fr;
   height: 100vh;
   .content {
-    display: grid;
-    grid-template-rows: 1fr 15vh;
     background: url("./assets/bg.jpg");
     background-size: cover;
   }

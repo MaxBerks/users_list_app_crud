@@ -1,16 +1,21 @@
 .main {
+  height: 100%;
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
-  gap: 1%;
-  justify-items: center;
-  align-items: center;
-  .main__btn {
-    font-size: 50px;
-    &-left {
-      justify-self: right;
-    }
-    &-right {
-      justify-self: left;
+  grid-template-rows: 1fr 15vh;
+  .main__content {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    gap: 1%;
+    justify-items: center;
+    align-items: center;
+    .main__btn {
+      font-size: 50px;
+      &-left {
+        justify-self: right;
+      }
+      &-right {
+        justify-self: left;
+      }
     }
   }
 }

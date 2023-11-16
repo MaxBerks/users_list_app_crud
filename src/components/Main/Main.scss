@@ -1,11 +1,11 @@
 .main {
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-columns: 1fr 5fr 1fr;
+  gap: 1%;
   justify-items: center;
   align-items: center;
   .main__btn {
-    font-size: 60px;
-    
+    font-size: 50px;
     &-left {
       justify-self: right;
     }

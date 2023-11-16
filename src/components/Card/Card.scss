@@ -1,0 +1,52 @@
+.card {
+  position: relative;
+  width: 22.5vw;
+  height: 55vh;
+  background-color: #ffffff;
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.25);
+  // display: grid;
+  // grid-template-rows: 1fr 1fr 1fr 1fr 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // text-align: center;
+  font-family: 'Inter', sans-serif;
+  padding: 60px;
+  &-darkWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background-color:#000;
+    opacity: 0.1;
+    width: 100%;
+    height: 100%;
+  }
+  &-center {
+    align-self: flex-end;
+  }
+  .card__photo {
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  .card__name {
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 24px;
+  }
+  .card__email {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #000;
+    .email__icon {
+      margin-right: 10px;
+    }
+    .email__text {
+      color: #949494;
+      font-weight: 400;
+    }
+  }
+}

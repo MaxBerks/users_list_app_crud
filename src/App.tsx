@@ -87,13 +87,13 @@ function App() {
 
   const updateSlides = () => {
     setUserList(userList.map((el, i) => {
-      let prev = (slideIndex == 0) ? userList.length - 1 : slideIndex - 1;
+      let prev = (slideIndex === 0) ? userList.length - 1 : slideIndex - 1;
       let current = slideIndex;
-      let next = (slideIndex == userList.length - 1) ? 0 : slideIndex + 1;;
+      let next = (slideIndex === userList.length - 1) ? 0 : slideIndex + 1;;
 
-      if(i == prev) el.priority = 1;
-      else if(i == current) el.priority = 2;
-      else if(i == next) el.priority = 3;
+      if(i === prev) el.priority = 1;
+      else if(i === current) el.priority = 2;
+      else if(i === next) el.priority = 3;
       else el.priority = 0;
       return el;
     }));

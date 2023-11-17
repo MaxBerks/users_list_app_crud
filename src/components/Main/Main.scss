@@ -1,3 +1,13 @@
+button {
+  border: none;
+  background-color: transparent;
+}
+
+button:focus {
+  border: none;
+  outline: none;
+}
+
 .main {
   height: 100%;
   display: grid;
@@ -9,14 +19,23 @@
     justify-items: center;
     align-items: center;
     .main__btn {
+      width: 50px;
+      height: 50px;
       font-size: 50px;
       cursor: pointer;
+      transition: all .1s linear;
       &-left {
         justify-self: right;
       }
       &-right {
         justify-self: left;
       }
+      &:hover {
+        color: #ffffff;
+      }
+      // .main__btnIcon:hover {
+        
+      // }
     }
   }
 }

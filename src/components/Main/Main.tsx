@@ -25,9 +25,9 @@ export default function Main({userList, prevSlide, nextSlide}: mainPropsType) {
   return (
     <main className='main'>
       <div className="main__content">
-        <IoIosArrowBack className='main__btn main__btn-left' onClick={prevSlide}/>
+        <button className='main__btn main__btn-left'><IoIosArrowBack className='main__btnIcon' onClick={prevSlide}/></button>
         <CardSlider userList={userList}/>
-        <IoIosArrowForward className='main__btn main__btn-right' onClick={nextSlide}/>
+        <button className='main__btn main__btn-right'><IoIosArrowForward className='main__btnIcon' onClick={nextSlide}/></button>
       </div>
       <Footer />
     </main>

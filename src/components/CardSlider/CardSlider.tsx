@@ -2,12 +2,25 @@ import React from 'react'
 import "./CardSlider.scss"
 import Card from '../Card/Card'
 
-export default function Cards() {
+type userType = {
+  priority: number,
+  id: number,
+  email: string,
+  first_name: string,
+  last_name: string,
+  avatar: string
+}
+
+type cardSliderPropsType = {
+  userList: userType[]
+}
+
+export default function CardSlider({userList}: cardSliderPropsType ) {
   return (
     <div className='cardSlider'>
-      <Card isCenter={false} name="Janet Weaver" email="janet.weaver@reqres.in" photoURL="./../../assets/photos/photo.jpg"/>
-      <Card isCenter={true} name="Janet Weaver" email="janet.weaver@reqres.in" photoURL="./../../assets/photos/photo.jpg"/>
-      <Card isCenter={false} name="Janet Weaver" email="janet.weaver@reqres.in" photoURL="./../../assets/photos/photo.jpg"/>
+      {userList.map((el, i) => {
+        return <Card key={i} priority={el.priority} name={`${el.first_name} ${el.last_name}`} email={el.email} photoURL={el.avatar}/>
+      })}
     </div>
   )
 }

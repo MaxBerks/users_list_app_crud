@@ -1,0 +1,45 @@
+.menu {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 25px;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  .menu__menuIcon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    z-index: 99;
+    &:hover {
+      color: rgb(103, 103, 103);
+    }
+    transition: color .1s linear;
+  }
+  .menu__subIcon {
+    color: transparent;
+    transition: color .1s linear;
+    margin-left: 5px;
+  }
+  &-opened {
+    .menu__menuIcon {
+      color: transparent;
+      z-index: -1;
+      cursor: default;
+      &:hover {
+        color: transparent;
+      }
+    }
+    .menu__subIcon {
+      color: #000;
+      cursor: pointer;
+      &:hover {
+        color: rgb(103, 103, 103);
+      }
+    }
+  }
+  &-disabled {
+    display: none;
+  }
+}

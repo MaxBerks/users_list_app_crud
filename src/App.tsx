@@ -61,9 +61,9 @@ function App() {
       if(typeof res === 'object') {
         setUserList(res.map((el, i) => {
           let prior = 0;
-          if(i === 0) prior = 1;
-          if(i === 1) prior = 2;
-          if(i === 2) prior = 3;
+          if(i === 5) prior = 1;
+          if(i === 0) prior = 2;
+          if(i === 1) prior = 3;
           return {...el, priority: prior}
         }));
       }
@@ -87,7 +87,6 @@ function App() {
 
   const newSlide = (num: number) => {
     setSlideIndex(num);
-    console.log(num);
   }
 
   const updateSlides = () => {

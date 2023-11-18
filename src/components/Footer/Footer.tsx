@@ -24,7 +24,7 @@ export default function Footer({userList, newSlide}: footerPropsType) {
     <footer className='footer'>
       <ul className="footer__dots">
         {userList.map((el, i) => {
-          return <li key={i} className={classNames('dots__dot', {'dots__dot-active': el.priority === 1})} onClick={() => newSlide(i)}></li>
+          return <li key={i} className={classNames('dots__dot', {'dots__dot-active': el.priority === 2})} onClick={() => newSlide(i)}></li>
         })}
       </ul>
       <PiMouseSimpleLight className='footer__mouse'/>

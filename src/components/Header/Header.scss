@@ -2,13 +2,23 @@
   width: 100vw;
   background-color: #222;
   display: grid;
-  grid-template-columns: 1fr 14fr; 
+  grid-template-columns: 1fr 2fr 8fr 2fr 1fr; 
   align-items: center;
   &__title {
-    grid-column-start: 2;
+    grid-column: 2 / 3;
     color: #fff;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     font-size: 15px;
+  }
+  &__addUser {
+    grid-column: 5 / 6;
+    color: #fff;
+    font-size: 30px;
+    transition: all .1s linear;
+    cursor: pointer;
+    &:hover {
+      color: rgb(147, 147, 147);
+    }
   }
 } 

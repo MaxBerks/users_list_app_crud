@@ -2,6 +2,7 @@ import React from 'react'
 import "./Card.scss";
 import { TfiEmail } from "react-icons/tfi";
 import classNames from 'classnames'
+import Menu from '../Menu/Menu'
 
 type CardPropsType = {
   priority: number,
@@ -13,7 +14,7 @@ type CardPropsType = {
 export default function Card({priority, name, email, photoURL}: CardPropsType) {
   return (
     <div className={classNames('card', {'card-invisible': priority === 0, 'card-center': priority === 2, 'card-left': priority === 1, 'card-right': priority === 3})}>
-      
+      <Menu enabled={priority == 2}/>
       <img src={photoURL} alt="#" className='card__photo'/>
       <h2 className='card__name'>{name}</h2>
       <h3 className='card__email'>

@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.scss';
 import Header from './components/Header/Header'
 import Main from './components/Main/Main' 
+import ModalWindow from './components/ModalWindow/ModalWindow'
 
 type userType = {
   priority: number,
@@ -54,7 +55,8 @@ async function getUsers(apiUrl: string) : Promise<string | apiUserType[]> {
 function App() {
   const apiUrl = "https://reqres.in/api/users?page=1"; 
   const [userList, setUserList] = useState<userType[]>([]);
-  const [slideIndex, setSlideIndex] = useState(1);
+  const [slideIndex, setSlideIndex] = useState<number>(1);
+  const [modulActive, setModulActive] = useState<boolean>(false);
 
   useEffect(() => {
     getUsers(apiUrl).then((res: string | apiUserType[])=>{
@@ -103,9 +105,18 @@ function App() {
     }));
   }
 
+  const openModul = () => {
+    setModulActive(true);
+  }
+
+  const closeModul = () => {
+    setModulActive(false);
+  }
+
   return (
     <div className="App">
-      <Header />
+      <ModalWindow modulActive={modulActive} closeModul={closeModul}/>
+      <Header openModul={openModul}/>
       <div className='content'>
         <Main prevSlide={prevSlide} nextSlide={nextSlide} newSlide={newSlide} userList={userList}/>
       </div>

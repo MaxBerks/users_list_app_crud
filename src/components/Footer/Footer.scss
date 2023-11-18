@@ -7,12 +7,14 @@
     width: 5vw;
     display: flex;
     justify-content: space-evenly;
+    
     .dots__dot {
       width: 10px;
       height: 10px;
       background-color: #fff;
       border: 1px solid #B1B1B1;
       border-radius: 50%;
+      cursor: pointer;
       &-active{
         background-color: #F03833;
         border: 1px solid #F03833;

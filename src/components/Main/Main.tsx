@@ -14,14 +14,16 @@ type userType = {
 }
 
 type changeSlideFuncType = () => void
+type newSlideFuncType = (num: number) => void
 
 type mainPropsType = {
   userList: userType[],
   prevSlide: changeSlideFuncType,
-  nextSlide: changeSlideFuncType
+  nextSlide: changeSlideFuncType,
+  newSlide: newSlideFuncType
 }
 
-export default function Main({userList, prevSlide, nextSlide}: mainPropsType) {
+export default function Main({userList, prevSlide, nextSlide, newSlide}: mainPropsType) {
   return (
     <main className='main'>
       <div className="main__content">
@@ -29,7 +31,7 @@ export default function Main({userList, prevSlide, nextSlide}: mainPropsType) {
         <CardSlider userList={userList}/>
         <button className='main__btn main__btn-right'><IoIosArrowForward onClick={nextSlide}/></button>
       </div>
-      <Footer />
+      <Footer userList={userList} newSlide={newSlide}/>
     </main>
   )
 }

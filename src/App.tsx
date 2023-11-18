@@ -85,6 +85,11 @@ function App() {
     else setSlideIndex(slideIndex - 1);
   } 
 
+  const newSlide = (num: number) => {
+    setSlideIndex(num);
+    console.log(num);
+  }
+
   const updateSlides = () => {
     setUserList(userList.map((el, i) => {
       let prev = (slideIndex === 0) ? userList.length - 1 : slideIndex - 1;
@@ -103,7 +108,7 @@ function App() {
     <div className="App">
       <Header />
       <div className='content'>
-        <Main prevSlide={prevSlide} nextSlide={nextSlide} userList={userList}/>
+        <Main prevSlide={prevSlide} nextSlide={nextSlide} newSlide={newSlide} userList={userList}/>
       </div>
     </div>
   );

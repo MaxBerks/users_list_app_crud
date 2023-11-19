@@ -105,18 +105,18 @@ function App() {
     }));
   }
 
-  const openModul = () => {
+  const openModal = () => {
     setModulActive(true);
   }
 
-  const closeModul = () => {
+  const closeModal = () => {
     setModulActive(false);
   }
 
   return (
     <div className="App">
-      <ModalWindow modulActive={modulActive} closeModul={closeModul}/>
-      <Header openModul={openModul}/>
+      <ModalWindow modulActive={modulActive} closeModul={closeModal}/>
+      <Header openModul={openModal}/>
       <div className='content'>
         <Main prevSlide={prevSlide} nextSlide={nextSlide} newSlide={newSlide} userList={userList}/>
       </div>

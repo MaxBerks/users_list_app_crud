@@ -1,5 +1,5 @@
 import React from 'react'
-import './Footer.scss'
+import './SliderDots.scss'
 import { PiMouseSimpleLight } from "react-icons/pi";
 import classNames from 'classnames'
 

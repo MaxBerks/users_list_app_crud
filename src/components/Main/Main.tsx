@@ -2,7 +2,7 @@ import React from 'react'
 import "./Main.scss"
 import { IoIosArrowForward, IoIosArrowBack  } from "react-icons/io";
 import CardSlider from '../CardSlider/CardSlider'
-import Footer from '../Footer/Footer'
+import Footer from '../SliderDots/SliderDots'
 
 type userType = {
   priority: number,

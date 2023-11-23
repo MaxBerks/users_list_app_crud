@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.scss';
 import Header from './components/Header/Header'
-import Main from './components/Main/Main' 
+import Carousel from './components/Carousel/Carousel' 
 import ModalWindow from './components/ModalWindow/ModalWindow'
 
 type userType = {
@@ -135,7 +135,7 @@ function App() {
       <ModalWindow modulActive={modulActive} closeModul={closeModal}/>
       <Header openModul={openModal}/>
       <div className='content'>
-        <Main prevSlide={prevSlide} nextSlide={nextSlide} newSlide={newSlide} userList={userList} removeUser={removeUser}/>
+        <Carousel prevSlide={prevSlide} nextSlide={nextSlide} newSlide={newSlide} userList={userList} removeUser={removeUser}/>
       </div>
     </div>
   );

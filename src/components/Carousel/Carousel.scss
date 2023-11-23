@@ -8,17 +8,17 @@ button:focus {
   outline: none;
 }
 
-.main {
+.carousel {
   height: 100%;
   display: grid;
   grid-template-rows: 1fr 15vh;
-  .main__content {
+  .carousel__content {
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
     gap: 1%;
     justify-items: center;
     align-items: center;
-    .main__btn {
+    .carousel__btn {
       width: 50px;
       height: 50px;
       font-size: 50px;

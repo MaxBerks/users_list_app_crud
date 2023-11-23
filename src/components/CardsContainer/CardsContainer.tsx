@@ -1,5 +1,5 @@
 import React from 'react'
-import "./CardSlider.scss"
+import "./CardsContainer.scss"
 import Card from '../Card/Card'
 
 type userType = {
@@ -13,14 +13,14 @@ type userType = {
 
 type removeUserFuncType = (id: number) => void
 
-type cardSliderPropsType = {
+type cardsContainerPropsType = {
   userList: userType[],
   removeUser: removeUserFuncType
 }
 
-export default function CardSlider({userList, removeUser}: cardSliderPropsType ) {
+export default function CardsContainer({userList, removeUser}: cardsContainerPropsType ) {
   return (
-    <div className='cardSlider'>
+    <div className='cardsContainer'>
       {userList.map((el, i) => {
         return <Card key={i} id={i + 1} priority={el.priority} name={`${el.first_name} ${el.last_name}`} email={el.email} photoURL={el.avatar} removeUser={removeUser}/>
       })}

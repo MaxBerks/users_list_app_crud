@@ -55,7 +55,7 @@ async function getUsers(apiUrl: string) : Promise<string | apiUserType[]> {
 function App() {
   const apiUrl = "https://reqres.in/api/users?page=1"; 
   const [userList, setUserList] = useState<userType[]>([]);
-  const [slideIndex, setSlideIndex] = useState<number>(1);
+  const [slideIndex, setSlideIndex] = useState<number>(0);
   const [modulActive, setModulActive] = useState<boolean>(false);
 
   useEffect(() => {
@@ -92,15 +92,26 @@ function App() {
   }
 
   const updateSlides = () => {
+    let prev = (slideIndex === 0) ? userList.length - 1 : slideIndex - 1;
+    let current = slideIndex;
+    let next = (slideIndex === userList.length - 1) ? 0 : slideIndex + 1;
+    
     setUserList(userList.map((el, i) => {
-      let prev = (slideIndex === 0) ? userList.length - 1 : slideIndex - 1;
-      let current = slideIndex;
-      let next = (slideIndex === userList.length - 1) ? 0 : slideIndex + 1;;
+      switch (i) {
+        case prev:
+          el.priority = 1;
+          break;
+        case current:
+          el.priority = 2;
+          break;
+        case next:
+          el.priority = 3;
+          break;
+        default:
+          el.priority = 0;
+          break;
+      }
 
-      if(i === prev) el.priority = 1;
-      else if(i === current) el.priority = 2;
-      else if(i === next) el.priority = 3;
-      else el.priority = 0;
       return el;
     }));
   }
@@ -113,12 +124,18 @@ function App() {
     setModulActive(false);
   }
 
+  const removeUser = (id:number) => {
+    console.log(userList);
+    setUserList(userList.filter(user => user.id !== id));
+    console.log(userList);
+  }
+
   return (
     <div className="App">
       <ModalWindow modulActive={modulActive} closeModul={closeModal}/>
       <Header openModul={openModal}/>
       <div className='content'>
-        <Main prevSlide={prevSlide} nextSlide={nextSlide} newSlide={newSlide} userList={userList}/>
+        <Main prevSlide={prevSlide} nextSlide={nextSlide} newSlide={newSlide} userList={userList} removeUser={removeUser}/>
       </div>
     </div>
   );

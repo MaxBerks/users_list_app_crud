@@ -11,15 +11,18 @@ type userType = {
   avatar: string
 }
 
+type removeUserFuncType = (id: number) => void
+
 type cardSliderPropsType = {
-  userList: userType[]
+  userList: userType[],
+  removeUser: removeUserFuncType
 }
 
-export default function CardSlider({userList}: cardSliderPropsType ) {
+export default function CardSlider({userList, removeUser}: cardSliderPropsType ) {
   return (
     <div className='cardSlider'>
       {userList.map((el, i) => {
-        return <Card key={i} priority={el.priority} name={`${el.first_name} ${el.last_name}`} email={el.email} photoURL={el.avatar}/>
+        return <Card key={i} id={i + 1} priority={el.priority} name={`${el.first_name} ${el.last_name}`} email={el.email} photoURL={el.avatar} removeUser={removeUser}/>
       })}
     </div>
   )

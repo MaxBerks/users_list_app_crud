@@ -5,7 +5,6 @@ import Header from './components/Header/Header'
 import Carousel from './components/Carousel/Carousel' 
 import ModalWindow from './components/ModalWindow/ModalWindow'
 
-
 type userType = {
   id: number,
   email: string,

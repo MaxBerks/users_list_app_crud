@@ -3,7 +3,6 @@ import "./CardsContainer.scss"
 import Card from '../Card/Card'
 
 type userType = {
-  // priority: number,
   id: number,
   email: string,
   first_name: string,

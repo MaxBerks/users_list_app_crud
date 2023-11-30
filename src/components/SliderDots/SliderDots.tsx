@@ -4,7 +4,6 @@ import { PiMouseSimpleLight } from "react-icons/pi";
 import classNames from 'classnames'
 
 type userType = {
-  // priority: number,
   id: number,
   email: string,
   first_name: string,

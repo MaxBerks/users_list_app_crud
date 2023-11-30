@@ -9,7 +9,6 @@ import classNames from 'classnames'
 
 type removeUserFuncType = (id: number) => void
 
-
 type menuPropsType = {
   enabled: boolean,
   id: number,
@@ -27,11 +26,15 @@ export default function Menu({enabled, id, removeUser}: menuPropsType) {
     setIsMenuOpened(false);
   }
   
+  const removeUserCloseMenu = (id: number) => {
+    removeUser(id);
+    closeMenu();
+  }
 
   return (
     <div className={classNames('menu', {'menu-opened': isMenuOpened}, {'menu-disabled': !enabled})}>
       <IoIosMenu className='menu__menuIcon' onClick={openMenu}/>
-      <LuUserMinus2 className='menu__subIcon menu__deleteIcon' onClick={() => removeUser(id)}/>
+      <LuUserMinus2 className='menu__subIcon menu__deleteIcon' onClick={() => removeUserCloseMenu(id)}/>
       <HiMiniPencilSquare className='menu__subIcon menu__penIcon' />
       <IoIosClose className='menu__subIcon menu__closeIcon' onClick={closeMenu}/>
     </div>

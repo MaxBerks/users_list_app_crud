@@ -33,6 +33,13 @@ button:focus {
       &:hover {
         color: #ffffff;
       }
+      &-disabled {
+        opacity: 0.2;
+        cursor: auto;
+        &:hover {
+          color: initial;
+        }
+      }
     }
   }
 }

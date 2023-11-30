@@ -3,9 +3,10 @@ import "./Carousel.scss"
 import { IoIosArrowForward, IoIosArrowBack  } from "react-icons/io";
 import CardsContainer from '../CardsContainer/CardsContainer'
 import SliderDots from '../SliderDots/SliderDots'
+import classNames from 'classnames'
 
 type userType = {
-  priority: number,
+  // priority: number,
   id: number,
   email: string,
   first_name: string,
@@ -17,23 +18,24 @@ type changeSlideFuncType = () => void
 type newSlideFuncType = (num: number) => void
 type removeUserFuncType = (id: number) => void
 
-type mainPropsType = {
+type CarouselPropsType = {
   userList: userType[],
+  priority: number[],
   prevSlide: changeSlideFuncType,
   nextSlide: changeSlideFuncType,
   newSlide: newSlideFuncType,
   removeUser: removeUserFuncType
 }
 
-export default function Carousel({userList, prevSlide, nextSlide, newSlide, removeUser}: mainPropsType) {
+export default function Carousel({userList, priority, prevSlide, nextSlide, newSlide, removeUser}: CarouselPropsType) {
   return (
     <main className='carousel'>
       <div className="carousel__content">
-        <button className='carousel__btn carousel__btn-left'><IoIosArrowBack onClick={prevSlide}/></button>
-        <CardsContainer userList={userList} removeUser={removeUser}/>
-        <button className='carousel__btn carousel__btn-right'><IoIosArrowForward onClick={nextSlide}/></button>
+        <button className={classNames('carousel__btn carousel__btn-left', {'carousel__btn-disabled': userList.length <= 1})}><IoIosArrowBack onClick={prevSlide} /></button>
+        <CardsContainer userList={userList} priority={priority} removeUser={removeUser}/>
+        <button className={classNames('carousel__btn carousel__btn-right', {'carousel__btn-disabled': userList.length <= 1})}><IoIosArrowForward onClick={nextSlide}/></button>
       </div>
-      <SliderDots userList={userList} newSlide={newSlide}/>
+      <SliderDots userList={userList} priority={priority} newSlide={newSlide}/>
     </main>
   )
 }

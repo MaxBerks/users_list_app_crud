@@ -4,7 +4,7 @@ import { PiMouseSimpleLight } from "react-icons/pi";
 import classNames from 'classnames'
 
 type userType = {
-  priority: number,
+  // priority: number,
   id: number,
   email: string,
   first_name: string,
@@ -14,20 +14,21 @@ type userType = {
 
 type newSlideFuncType = (num: number) => void
 
-type footerPropsType = {
+type sliderDotsPropsType = {
   userList: userType[],
+  priority: number[],
   newSlide: newSlideFuncType
 }
 
-export default function Footer({userList, newSlide}: footerPropsType) {
+export default function SliderDots({userList, priority, newSlide}: sliderDotsPropsType) {
   return (
-    <footer className='footer'>
+    <div className='footer'>
       <ul className="footer__dots">
         {userList.map((el, i) => {
-          return <li key={i} className={classNames('dots__dot', {'dots__dot-active': el.priority === 2})} onClick={() => newSlide(i)}></li>
+          return <li key={i} className={classNames('dots__dot', {'dots__dot-active': priority[1] === i})} onClick={() => newSlide(i)}></li> //!!!!!!!!!!!!!!!!
         })}
       </ul>
       <PiMouseSimpleLight className='footer__mouse'/>
-    </footer>
+    </div>
   )
 }

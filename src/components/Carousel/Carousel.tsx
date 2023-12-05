@@ -21,7 +21,6 @@ type openModalFuncType = (mode: number, id: number) => void
 type CarouselPropsType = {
   userList: userType[],
   priority: number[],
-  modalUserId: number,
   prevSlide: changeSlideFuncType,
   nextSlide: changeSlideFuncType,
   newSlide: newSlideFuncType,
@@ -29,12 +28,12 @@ type CarouselPropsType = {
   openModal: openModalFuncType
 }
 
-export default function Carousel({userList, priority, modalUserId, prevSlide, nextSlide, newSlide, removeUser, openModal}: CarouselPropsType) {
+export default function Carousel({userList, priority, prevSlide, nextSlide, newSlide, removeUser, openModal}: CarouselPropsType) {
   return (
     <main className='carousel'>
       <div className="carousel__content">
         <button className={classNames('carousel__btn carousel__btn-left', {'carousel__btn-disabled': userList.length <= 1})}><IoIosArrowBack onClick={prevSlide} /></button>
-        <CardsContainer userList={userList} priority={priority} modalUserId={modalUserId} removeUser={removeUser} openModal={openModal}/>
+        <CardsContainer userList={userList} priority={priority}removeUser={removeUser} openModal={openModal}/>
         <button className={classNames('carousel__btn carousel__btn-right', {'carousel__btn-disabled': userList.length <= 1})}><IoIosArrowForward onClick={nextSlide}/></button>
       </div>
       <SliderDots userList={userList} priority={priority} newSlide={newSlide}/>

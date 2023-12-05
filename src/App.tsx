@@ -156,7 +156,7 @@ function App() {
       <ModalWindow modalActive={modalActive} modalMode={modalMode} modalUserId={modalUserId} closeModal={closeModal} addUser={addUser} editUser={editUser}/>
       <Header openModal={openModal}/>
       <div className='content'>
-        <Carousel userList={userList} priority={priority} modalUserId={modalUserId} prevSlide={prevSlide} nextSlide={nextSlide} newSlide={newSlide} removeUser={removeUser} openModal={openModal}/>
+        <Carousel userList={userList} priority={priority} prevSlide={prevSlide} nextSlide={nextSlide} newSlide={newSlide} removeUser={removeUser} openModal={openModal}/>
       </div>
     </div>
   );

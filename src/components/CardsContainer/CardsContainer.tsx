@@ -16,12 +16,11 @@ type openModalFuncType = (mode: number, id: number) => void
 type cardsContainerPropsType = {
   userList: userType[],
   priority: number[],
-  modalUserId: number,
   removeUser: removeUserFuncType,
   openModal: openModalFuncType
 }
 
-export default function CardsContainer({userList, priority, modalUserId, removeUser, openModal}: cardsContainerPropsType ) {
+export default function CardsContainer({userList, priority, removeUser, openModal}: cardsContainerPropsType ) {
   return (
     <div className='cardsContainer'>
       {userList.map((el, i) => {

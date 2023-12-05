@@ -21,13 +21,13 @@ type sliderDotsPropsType = {
 
 export default function SliderDots({userList, priority, newSlide}: sliderDotsPropsType) {
   return (
-    <div className='footer'>
-      <ul className="footer__dots">
+    <div className='sliderDots'>
+      <ul className="sliderDots__dots">
         {userList.map((el, i) => {
           return <li key={i} className={classNames('dots__dot', {'dots__dot-active': priority[1] === i})} onClick={() => newSlide(i)}></li> //!!!!!!!!!!!!!!!!
         })}
       </ul>
-      <PiMouseSimpleLight className='footer__mouse'/>
+      <PiMouseSimpleLight className='sliderDots__mouse'/>
     </div>
   )
 }

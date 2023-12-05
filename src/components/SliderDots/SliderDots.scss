@@ -1,27 +1,30 @@
-.footer {
+.sliderDots {
   display: grid;
   grid-template-rows: 1fr 1fr 2fr 1fr;
   justify-items: center;
-  .footer__dots {
+  .sliderDots__dots {
     grid-row: 1 / 2;
-    width: 5vw;
+    width: auto;
     display: flex;
-    justify-content: space-evenly;
     
     .dots__dot {
+      margin-right: .25vw;
       width: 10px;
       height: 10px;
       background-color: #fff;
       border: 1px solid #B1B1B1;
       border-radius: 50%;
       cursor: pointer;
+      &:last-child{
+        margin-right: 0;
+      }
       &-active{
         background-color: #F03833;
         border: 1px solid #F03833;
       }
     }
   }
-  .footer__mouse {
+  .sliderDots__mouse {
     grid-row: 3 / 4;
     font-size: 40px;
   }

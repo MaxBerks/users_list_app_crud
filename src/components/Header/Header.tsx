@@ -2,19 +2,17 @@ import React from 'react'
 import './Header.scss'
 import { LuUserPlus2 } from "react-icons/lu";
 
-type openModulFuncType = () => void
-type addUserFuncType = () => void
+type openModalFuncType = (mode: number, id: number) => void
 
 type headerPropsType = {
-  openModul: openModulFuncType,
-  addUser: addUserFuncType
+  openModal: openModalFuncType,
 }
 
-export default function Header({openModul, addUser}: headerPropsType) {
+export default function Header({openModal}: headerPropsType) {
   return (
     <header className='header'>
       <div className='header__title'>Users list</div>
-      <LuUserPlus2 className='header__addUser' onClick={addUser}/>
+      <LuUserPlus2 className='header__addUser' onClick={() => openModal(0, -1)}/>
     </header>
   )
 }

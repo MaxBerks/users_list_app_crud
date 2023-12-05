@@ -8,14 +8,16 @@ import { LuUserMinus2 } from "react-icons/lu";
 import classNames from 'classnames'
 
 type removeUserFuncType = (id: number) => void
+type openModalFuncType = (mode: number, id: number) => void
 
 type menuPropsType = {
   enabled: boolean,
   id: number,
-  removeUser: removeUserFuncType
+  removeUser: removeUserFuncType,
+  openModal: openModalFuncType
 }
 
-export default function Menu({enabled, id, removeUser}: menuPropsType) {
+export default function Menu({enabled, id, removeUser, openModal}: menuPropsType) {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
 
   const openMenu = () => {
@@ -35,7 +37,7 @@ export default function Menu({enabled, id, removeUser}: menuPropsType) {
     <div className={classNames('menu', {'menu-opened': isMenuOpened}, {'menu-disabled': !enabled})}>
       <IoIosMenu className='menu__menuIcon' onClick={openMenu}/>
       <LuUserMinus2 className='menu__subIcon menu__deleteIcon' onClick={() => removeUserCloseMenu(id)}/>
-      <HiMiniPencilSquare className='menu__subIcon menu__penIcon' />
+      <HiMiniPencilSquare className='menu__subIcon menu__penIcon' onClick={() => openModal(1, id)}/>
       <IoIosClose className='menu__subIcon menu__closeIcon' onClick={closeMenu}/>
     </div>
   )

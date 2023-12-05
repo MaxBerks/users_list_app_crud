@@ -48,7 +48,9 @@ function App() {
   const [userList, setUserList] = useState<userType[]>([]);
   const [priority, setPriority] = useState<number[]>([]);
   const [slideIndex, setSlideIndex] = useState<number>(0);
-  const [modulActive, setModulActive] = useState<boolean>(false);
+  const [modalActive, setModalActive] = useState<boolean>(false);
+  const [modalMode, setModalMode] = useState<number>(0);
+  const [modalUserId, setModalUserId] = useState<number>(0);
 
   const prioritySetRef = useRef(false);
 
@@ -100,12 +102,15 @@ function App() {
     setPriority([prev, current, next]);
   }
 
-  const openModal = () => {
-    setModulActive(true);
+  // mode: 0 - add user, 1 - edit user
+  const openModal = (mode: number, id: number) => {
+    setModalActive(true);
+    setModalMode(mode);
+    setModalUserId(id);
   }
 
   const closeModal = () => {
-    setModulActive(false);
+    setModalActive(false);
   }
 
   const removeUser = (id:number) => {
@@ -114,23 +119,44 @@ function App() {
     setUserList(prevUserList => prevUserList.filter(user => user.id !== id));
   }
 
-  const addUser = () => {
+  const addUser = (firstName:string, lastName:string, email:string, img:string) => {
     setUserList(prevUserList => [...prevUserList, {
       priority: 0,
-      id: 10,
-      email: "example@email.com",
-      first_name: "Jan",
-      last_name: "Kovac",
-      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFPhoY-w4gP0fJJ31WtK0Rl4Xh69mb9CSwik53v04u&s"
+      id: userList[userList.length - 1].id + 1,
+      email: email,
+      first_name: firstName,
+      last_name: lastName,
+      avatar: img
     }]);
+    setSlideIndex(userList.length);
+  }
+
+  const editUser = (id:number, firstName:string, lastName:string, email:string, img:string) => {
+    setUserList(prevUserList => {
+      let user = prevUserList.filter(item => item.id === id)[0];
+      user.first_name = firstName;
+      user.last_name = lastName;
+      user.email = email;
+      user.avatar = img;
+      return prevUserList.map(item => {
+        if(item.id === id) {
+          item.first_name = user.first_name;
+          item.last_name = user.last_name;
+          item.email = user.email;
+          item.avatar = user.avatar;
+          
+        }
+        return item;
+      });
+    })
   }
 
   return (
     <div className="App">
-      <ModalWindow modulActive={modulActive} closeModul={closeModal}/>
-      <Header openModul={openModal} addUser={addUser}/>
+      <ModalWindow modalActive={modalActive} modalMode={modalMode} modalUserId={modalUserId} closeModal={closeModal} addUser={addUser} editUser={editUser}/>
+      <Header openModal={openModal}/>
       <div className='content'>
-        <Carousel userList={userList} priority={priority} prevSlide={prevSlide} nextSlide={nextSlide} newSlide={newSlide} removeUser={removeUser}/>
+        <Carousel userList={userList} priority={priority} modalUserId={modalUserId} prevSlide={prevSlide} nextSlide={nextSlide} newSlide={newSlide} removeUser={removeUser} openModal={openModal}/>
       </div>
     </div>
   );

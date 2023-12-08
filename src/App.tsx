@@ -120,6 +120,7 @@ function App() {
   }
 
   const addUser = (firstName:string, lastName:string, email:string, img:string) => {
+    console.log(img);
     setUserList(prevUserList => [...prevUserList, {
       priority: 0,
       id: userList[userList.length - 1].id + 1,
@@ -153,7 +154,7 @@ function App() {
 
   return (
     <div className="App">
-      <ModalWindow modalActive={modalActive} modalMode={modalMode} modalUserId={modalUserId} closeModal={closeModal} addUser={addUser} editUser={editUser}/>
+      <ModalWindow userList={userList} modalActive={modalActive} modalMode={modalMode} modalUserId={modalUserId} closeModal={closeModal} addUser={addUser} editUser={editUser}/>
       <Header openModal={openModal}/>
       <div className='content'>
         <Carousel userList={userList} priority={priority} prevSlide={prevSlide} nextSlide={nextSlide} newSlide={newSlide} removeUser={removeUser} openModal={openModal}/>

@@ -7,6 +7,7 @@ This project is a React-based web application designed to manage a list of users
 - **User-friendly interface**: Easy to navigate UI for managing users.
 - **CRUD operations**: Supports creating, reading, updating, and deleting user data.
 - **Form validation**: Ensures that all required data has been entered before submission.
+- **Sound effects**: Every player's turn and the end of the game is accompanied by a sound effect.
 
 ## Installation
 
